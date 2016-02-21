@@ -1,0 +1,31 @@
+<template name="dashboard">
+  <div class="template-dashboard">
+    <div class="page-header">
+      <h1>Dashboard</h1>
+    </div>
+    {{#if showForm}}
+      {{> selectPlan}}
+      {{#if isSubscriptionCanceled}}
+        <p>Please resubscribe</p>
+      {{else}}
+      <h3>Subscribe and get access to our list of items!</h3>
+
+      <form role="form">
+        <div class="row">
+          <div class="col-md-6 col-xs-12">
+            <div id="payment-form"></div>
+            <button type="submit" class="btn btn-success">Submit</button>
+          </div>
+        </div>
+      </form>
+      {{/if}}
+    {{else}}
+    <ul class="list-group">
+      {{#each items}}
+        <li class="list-group-item">{{ name }} <span class="label label-default">{{ rating }}</span></li>
+      {{/each}}
+    </ul>
+    {{/if}}
+
+  </div>
+</template>
